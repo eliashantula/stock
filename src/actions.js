@@ -1,8 +1,9 @@
 export const GET_REQUEST = "GET_REQUEST";
 export const GET_SUCCESS = "GET_SUCCESS";
 export const GET_FAILURE = "GET_FAILURE";
-
+import data from "./quandle/30DayStockData";
 // Starts request
+
 export function getRequest() {
   return {
     type: GET_REQUEST
@@ -29,6 +30,16 @@ export function getFailure(error) {
 //action to get 30 stocks and info
 export function getInitialStocks() {
   //some initial setup for variables in the fetch call
+
+  return dispatch => {
+    dispatch(getRequest);
+    return new Promise((res, rej) => {
+      setTimeout(() => {
+      dispatch(getSuccess) 
+      resolve(data);
+      }, 100);
+    });
+  };
 }
 
 /*const baseUrl = "https://www.quandl.com/api/v3/datasets/EOD/";

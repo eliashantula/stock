@@ -21,10 +21,13 @@ class StockDataContainer extends Component {
 //getting the store state to container's props
 const mapStateToProps = state => {
   return {
-    // stocks: state.initialStocksReducer
+    stocks: state.stocks
     // isFetching: state.initialStocksReducer.
   };
 };
+
+
+
 
 //allowing container to access action calls
 const mapDispatchToProps = dispatch => {
