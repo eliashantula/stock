@@ -12,6 +12,8 @@ class Transactions extends Component {
   }
 
   render() {
+    const {transactions} = this.props
+
     return (
       <div>
         <div class="card text-center">
@@ -25,20 +27,26 @@ class Transactions extends Component {
                   <th scope="col">Type</th>
                   <th scope="col">Quantity</th>
                   <th scope="col">Price</th>
-                  <th scope="col">Trade?</th>
                 </tr>
               </thead>
               <tbody>
+              {transactions.map(transaction => {
+              return (
                 <tr>
-                  <td>Mark</td>
-                  <td>Mark</td>
+                  <td>{transaction.date}</td>
+                  <td>{transaction.symbol}</td>
 
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
+                  <td>{transaction.type}</td>
+                  <td>{transaction.quantity}</td>
+                  <td>{transaction.price}</td>
                 </tr>
-              </tbody>
+
+
+                )
+
+
+              })}
+                             </tbody>
             </table>
           </div>
           <div class="card-footer text-muted">2 days ago</div>
@@ -48,5 +56,5 @@ class Transactions extends Component {
   }
 }
 
-Export Default Transactions
-export default List;
+
+export default Transactions;
