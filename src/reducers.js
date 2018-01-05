@@ -1,16 +1,20 @@
 import * as Actions from "./actions";
 //will import GET_REQUEST ... getSucess as as keys in the Actions object ({})
 
+//for a bigger store
+import {combineReducers} from "redux";
+
 const initialState = {
-   stocks: [],
-  accountValue,
+  stocks: [],
+  isFetching: false
 };
 
-export function initialStocksReducer(state = [], action) {
+export function initialStocksReducer(state = initialState, action) {
   switch (action.type) {
     case Actions.GET_SUCCESS:
       return {
         ...state,
+        stocks: state.stocks.map().push(action.data),
         isFetching: false
       };
     case Actions.GET_REQUEST:
@@ -31,6 +35,5 @@ export function initialStocksReducer(state = [], action) {
       return state;
   }
 }
-
 
 export const stocksApp = combineReducers({initialStocksReducer});

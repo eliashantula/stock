@@ -21,7 +21,8 @@ class StockDataContainer extends Component {
 //getting the store state to container's props
 const mapStateToProps = state => {
   return {
-    isFetching: state.isFetching
+    // stocks: state.initialStocksReducer
+    // isFetching: state.initialStocksReducer.
   };
 };
 
@@ -29,7 +30,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   // Create an object with the action creators
   // (or, import them as a named object)
-  const actions = {};
+  const actions = {getInitialStocks};
 
   // Returns exactly the same code as above
   return bindActionCreators(actions, dispatch);
