@@ -1,9 +1,11 @@
 export const GET_REQUEST = "GET_REQUEST";
 export const GET_SUCCESS = "GET_SUCCESS";
 export const GET_FAILURE = "GET_FAILURE";
-export const NEW_BUY = "NEW_BUY";
-export const NEW_SELL = "NEW_SELL";
+export const NEW_TRANSACTION = "NEW_TRANSACTION";
 
+//-------------------------------
+// Initial Stocks Action
+//-------------------------------
 const data = require("./quandl/30DayStockData");
 // Starts request
 
@@ -47,18 +49,15 @@ export function getInitialStocks() {
   };
 }
 
+//-------------------------------
+// Transaction Action
+//-------------------------------
 
-export function newBuy(data) {
+export function newTransaction(data) {
   return {
-    type: NEW_BUY
+    type: NEW_TRANSACTION,
     data
   }
-}
-
-export function newSell(data){
-  type: NEW_SELL
-  data
-
 }
 
 /*const baseUrl = "https://www.quandl.com/api/v3/datasets/EOD/";

@@ -30,8 +30,6 @@ class Transactions extends Component {
               </thead>
               <tbody>
                 <tr>
-                  {/*                  <th scope="row">1</th>
-*/}
                   <td>Mark</td>
                   <td>Mark</td>
 

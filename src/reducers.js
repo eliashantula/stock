@@ -1,8 +1,16 @@
+//-------------------------------
+// Setup
+//-------------------------------
+
 import * as Actions from "./actions";
 //will import GET_REQUEST ... getSucess as as keys in the Actions object ({})
 
 //for a bigger store
-import { combineReducers } from "redux";
+import {combineReducers} from "redux";
+
+//-------------------------------
+// Stocks Reducer
+//-------------------------------
 
 const initialState = {
   stocks: [],
@@ -36,28 +44,30 @@ export function initialStocksReducer(state = initialState, action) {
   }
 }
 
+//-------------------------------
+// Transaction Reducer
+//-------------------------------
+
 const initialTransactionState = {
   transactions: []
 };
 
-export function stockTransactions(state = initialTransactionState, action) {}
-switch (action.type) {
-  case Actions.NEW_BUY:
-    return {
-      ...state,
-      transactions: state.transactions.map().push(action.data)
-    };
-
-  case Actions.NEW_SELL:
-    return {
-      ...state,
-      transactions: state.transactions.map().push(action.data)
-    };
-      default:
+export function stockTransactionsReducer(
+  state = initialTransactionState,
+  action
+) {
+  switch (action.type) {
+    case Actions.NEW_TRANSACTION:
+      return {
+        ...state,
+        transactions: state.transactions.map().push(action.data)
+      };
+    default:
       return state;
   }
 }
 
 export const stocksApp = combineReducers({
-  initialStocksReducer: initialStocksReducer
+  initialStocksReducer: initialStocksReducer,
+  stockTransactionsReducer: stockTransactionsReducer
 });

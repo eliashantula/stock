@@ -4,37 +4,46 @@ import "./App.css";
 
 //custom containers
 import StockDataContainer from "../containers/StockDataContainer";
-import Trade from "../components/Trade";
+import TradeContainer from "../containers/TradeContainer";
 
 //adding some bootstrap
 import "bootstrap/dist/css/bootstrap.css";
+
+//for the router
+import {
+  BrowserRouter as Router,
+  Route,
+  NavLink,
+  Switch
+} from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <nav
-          class="navbar navbar-light bg-faded"
-          style={{marginBottom: "40px"}}
-        >
-          <h1>
-            <a class="navbar-brand" href="#">
-              FidelGuard Stock Portfolio Simulator
-            </a>{" "}
-          </h1>
-        </nav>
-        <div className="App container-fluid">
-          <div class="row">
-            <div class="col-xl-4">
-              <StockDataContainer />
-            </div>
-            <div class="col-xl-8">
-            <Switch>
-
-              <Route exact path="/trade" component={Trade} />
-              <Route exact path="/portfolio" component={Trade} />
-              <Route exact path="/" component={Trade} />
-            </Switch>
+        <div>
+          <nav
+            className="navbar navbar-light bg-faded"
+            style={{marginBottom: "40px"}}
+          >
+            <h1>
+              <a className="navbar-brand" href="#">
+                FidelGuard Stock Portfolio Simulator
+              </a>{" "}
+            </h1>
+          </nav>
+          <div className="App container-fluid">
+            <div className="row">
+              <div className="col-xl-4">
+                <StockDataContainer />
+              </div>
+              <div className="col-xl-8">
+                <Switch>
+                  <Route exact path="/trade" component={TradeContainer} />
+                  <Route exact path="/portfolio" component={TradeContainer} />
+                  <Route exact path="/" component={TradeContainer} />
+                </Switch>
+              </div>
             </div>
           </div>
         </div>

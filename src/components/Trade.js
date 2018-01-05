@@ -4,13 +4,17 @@ import React, {Component} from "react";
 //adding some bootstrap
 import "bootstrap/dist/css/bootstrap.css";
 
-class List extends Component {
+class Trade extends Component {
   constructor(props) {
     super();
   }
 
   componentDidMount() {}
   render() {
+    const {onSubmit} = this.props;
+    console.log("onSubmit =>", onSubmit);
+    console.log("trade props => ", this.props);
+
     return (
       <div>
         <div class="card text-center">
@@ -19,89 +23,111 @@ class List extends Component {
             {" "}
             <div class="row">
               <div class="col-xl-6">
-              <form className="form-group" style={{marginTop: "10px", marginLeft: "30px"}}>
-                <div class="form-group row">
-                  <label for="example-text-input" class="col-2 col-form-label">
-                    Symbol
-                  </label>
-                  <div class="col-10">
-                    <input
-                      class="form-control"
-                      type="text"
-                      name="symbol"
-                      placeholder="AAPL"
-                      id="example-text-input"
-                      style={{width: "500px"}}
-                    />
+                <form
+                  onSubmit={onSubmit}
+                  className="form-group"
+                  style={{marginTop: "10px", marginLeft: "30px"}}
+                >
+                  <div class="form-group row">
+                    <label
+                      for="example-text-input"
+                      class="col-2 col-form-label"
+                    >
+                      Symbol
+                    </label>
+                    <div class="col-10">
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="symbol"
+                        placeholder="AAPL"
+                        id="example-text-input"
+                        style={{width: "500px"}}
+                      />
+                    </div>
                   </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-text-input" class="col-2 col-form-label">
-                    Buy/Sell
-                  </label>
-                  <div class="col-10">
-                    <input
-                      class="form-control"
-                      type="text"
-                      name="symbol"
-                      placeholder="AAPL"
-                      id="example-text-input"
-                      style={{width: "500px"}}
-                    />
+                  <div class="form-group row">
+                    <label
+                      for="example-text-input"
+                      class="col-2 col-form-label"
+                    >
+                      Buy/Sell
+                    </label>
+                    <div class="col-10">
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="symbol"
+                        placeholder="AAPL"
+                        id="example-text-input"
+                        style={{width: "500px"}}
+                      />
+                    </div>
                   </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-text-input" class="col-2 col-form-label">
-                    Quantity
-                  </label>
-                  <div class="col-10">
-                    <input
-                      class="form-control"
-                      type="text"
-                      name="symbol"
-                      placeholder="AAPL"
-                      id="example-text-input"
-                      style={{width: "500px"}}
-                    />
+                  <div class="form-group row">
+                    <label
+                      for="example-text-input"
+                      class="col-2 col-form-label"
+                    >
+                      Quantity
+                    </label>
+                    <div class="col-10">
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="symbol"
+                        placeholder="AAPL"
+                        id="example-text-input"
+                        style={{width: "500px"}}
+                      />
+                    </div>
                   </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-text-input" class="col-2 col-form-label">
-                    Date
-                  </label>
-                  <div class="col-10">
-                    <input
-                      class="form-control"
-                      type="text"
-                      name="symbol"
-                      placeholder="AAPL"
-                      id="example-text-input"
-                      style={{width: "500px"}}
-                    />
+                  <div class="form-group row">
+                    <label
+                      for="example-text-input"
+                      class="col-2 col-form-label"
+                    >
+                      Date
+                    </label>
+                    <div class="col-10">
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="symbol"
+                        placeholder="AAPL"
+                        id="example-text-input"
+                        style={{width: "500px"}}
+                      />
+                    </div>
                   </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-text-input" class="col-2 col-form-label">
-                    Price
-                  </label>
-                  <div class="col-10" style={{textAlign: "left"}}>
-                    $100
+                  <div class="form-group row">
+                    <label
+                      for="example-text-input"
+                      class="col-2 col-form-label"
+                    >
+                      Price
+                    </label>
+                    <div class="col-10" style={{textAlign: "left"}}>
+                      $100
+                    </div>
                   </div>
-                </div>
-                <div class="form-group row">
-                  <label for="example-text-input" class="col-2 col-form-label">
-                    Price
-                  </label>
-                  <div class="col-10" style={{textAlign: "left"}}>
-                    $100
+                  <div class="form-group row">
+                    <label
+                      for="example-text-input"
+                      class="col-2 col-form-label"
+                    >
+                      Price
+                    </label>
+                    <div class="col-10" style={{textAlign: "left"}}>
+                      $100
+                    </div>
                   </div>
-                </div>
-                <input
-                  type="submit"
-                  className="btn btn-success"
-                  style={{marginLeft: "60px"}}
-                />
-              </form>
+                  <input
+                    type="submit"
+                    className="btn btn-success"
+                    style={{marginLeft: "60px"}}
+                  />
+                </form>
               </div>
             </div>
           </div>
@@ -112,4 +138,4 @@ class List extends Component {
   }
 }
 
-export default List;
+export default Trade;

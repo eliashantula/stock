@@ -2,30 +2,29 @@ import React, {Component} from "react";
 
 //connecting to the store
 import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
-import Trade from '../components/Trade'
+
 //our component and actions to give it
+import Trade from "../components/Trade";
+import {newTransaction} from "../actions";
 
-import {getInitialStocks} from "../actions";
-
+//for using forms
+import serialize from "form-serialize";
 
 const mapDispatchToProps = dispatch => {
   return {
     onSubmit: e => {
       e.preventDefault();
       const form = e.target;
-      const data = serialize(form, { hash: true });
-      console.log(data);
-      dispatch(
-        transferMoney(
-          Number.parseInt(data.id),
-          Number.parseInt(data.id1),
-          Number.parseInt(data.amount)
-        )
-      );
+      const data = serialize(form, {hash: true});
+      console.log("form data =>", data);
+      // dispatch(
+      //   newTransaction(data)
+      // );
       form.reset();
     }
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Trade);
+const TradeContainer = connect(null, mapDispatchToProps)(Trade);
+
+export default TradeContainer;
