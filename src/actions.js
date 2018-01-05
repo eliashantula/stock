@@ -30,7 +30,8 @@ export function getFailure(error) {
 export function getInitialStocks(/*input later*/) {
   const baseUrl = "https://www.quandl.com/api/v3/datasets/EOD/";
   const quandleAPIKey = "BJQ4TqSUVtTDysdfSCxZ";
-  const stockList = [];
+  const stockList = ["AAPL", "GOOG", "MSFT", "NVDA", "FB", "AMZN", "LNKD", "INTC", "TWTR", "TSLA"];
+  let currentDate = new Date().toISOString().split("T")[0];
 
   return async dispatch => {
     try {
@@ -39,8 +40,15 @@ export function getInitialStocks(/*input later*/) {
       fetch(
         `${baseUrl}${stock}.json?api_key=${
           quandleAPIKey
-        }&start_date=2018-01-04&end_date=2018-01-04`
-      );
+        }&start_date=${startDate}&end_date=${currentDate}`
+      )
+      .then(response => {
+      return response.json();
+    })
+    .then(response => {
+      let todayClose = response.dataset.data[0][4];
+      console.log(todayClose)
+    })
     } catch (e) {
       console.err(e);
     }

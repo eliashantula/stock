@@ -1,19 +1,16 @@
 import * as Actions from "./actions";
 //will import GET_REQUEST ... getSucess as as keys in the Actions object ({})
 
-const initialState = {};
+const initialState = {
+   stocks: [],
+  accountValue,
+};
 
-export function initialStocksReducer(state = intialState, action) {
+export function initialStocksReducer(state = [], action) {
   switch (action.type) {
     case Actions.GET_SUCCESS:
       return {
         ...state,
-        // films: action.data.films,
-        // people: action.data.people,
-        // planets: action.data.planets,
-        // species: action.data.species,
-        // starships: action.data.starships,
-        // vehicles: action.data.vehicles,
         isFetching: false
       };
     case Actions.GET_REQUEST:
@@ -29,7 +26,11 @@ export function initialStocksReducer(state = intialState, action) {
         isFetching: false,
         error: action.error
       };
+
     default:
       return state;
   }
 }
+
+
+export const stocksApp = combineReducers({initialStocksReducer});
