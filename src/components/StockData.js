@@ -1,6 +1,9 @@
 // reg component
 import React, {Component} from "react";
 
+//adding some bootstrap
+import "bootstrap/dist/css/bootstrap.css";
+
 class List extends Component {
   constructor(props) {
     super();
@@ -25,22 +28,15 @@ class List extends Component {
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">1</th>
+                  {/*                  <th scope="row">1</th>
+*/}
                   <td>Mark</td>
+                  <td>Mark</td>
+
                   <td>Otto</td>
                   <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
+                  <td>@mdo</td>
+                  <td>@mdo</td>
                 </tr>
               </tbody>
             </table>

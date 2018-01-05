@@ -9,7 +9,7 @@ import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
 
 //custom middleware
-import logger from "redux-logger";
+// import logger from "redux-logger";
 import thunk from "redux-thunk";
 
 //importing our store
@@ -18,9 +18,7 @@ import {stocksApp} from "./reducers";
 //importing an action
 import {getInitialStocks} from "./actions";
 
-let store = createStore(stocksApp, applyMiddleware(logger, thunk));
-
-store.dispatch(getInitialStocks());
+let store = createStore(stocksApp, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>

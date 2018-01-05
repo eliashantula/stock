@@ -30,7 +30,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   // Create an object with the action creators
   // (or, import them as a named object)
-  const actions = {getInitialStocks};
+  const actions = {};
 
   // Returns exactly the same code as above
   return bindActionCreators(actions, dispatch);
