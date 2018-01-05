@@ -4,8 +4,9 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
-//our component
+//our component and actions to give it
 import StockData from "../components/StockData";
+import {getInitialStocks} from "../actions";
 
 //creating our own container
 class StockDataContainer extends Component {
@@ -14,28 +15,28 @@ class StockDataContainer extends Component {
   }
 
   render() {
-    return <StockData />;
+    const {getInitialStocks, stocks, isFetching} = this.props;
+    return (
+      <StockData
+        getInitialStocks={getInitialStocks}
+        stocks={stocks}
+        isFetching={isFetching}
+      />
+    );
   }
 }
 
 //getting the store state to container's props
 const mapStateToProps = state => {
   return {
-    stocks: state.stocks
-    // isFetching: state.initialStocksReducer.
+    stocks: state.initialStocksReducer.stocks,
+    isFetching: state.initialStocksReducer.isFetching
   };
 };
 
-
-
-
 //allowing container to access action calls
 const mapDispatchToProps = dispatch => {
-  // Create an object with the action creators
-  // (or, import them as a named object)
-  const actions = {};
-
-  // Returns exactly the same code as above
+  const actions = {getInitialStocks};
   return bindActionCreators(actions, dispatch);
 };
 

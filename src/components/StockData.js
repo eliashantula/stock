@@ -9,7 +9,15 @@ class List extends Component {
     super();
   }
 
+  componentDidMount() {
+    const {getInitialStocks, stocks, isFetching} = this.props;
+
+    getInitialStocks();
+  }
   render() {
+    const {getInitialStocks, stocks, isFetching} = this.props;
+
+    console.log("stocks =>", stocks);
     return (
       <div>
         <div class="card text-center">
@@ -20,28 +28,45 @@ class List extends Component {
                 <tr>
                   <th scope="col">Symbol</th>
                   <th scope="col">Price</th>
-                  <th scope="col">1d</th>
-                  <th scope="col">7d</th>
-                  <th scope="col">30d</th>
+                  <th scope="col">1day</th>
+                  <th scope="col">7day</th>
+                  <th scope="col">30day</th>
                   <th scope="col">Trade?</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  {/*                  <th scope="row">1</th>
-*/}
-                  <td>Mark</td>
-                  <td>Mark</td>
-
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
-                </tr>
+                {stocks.map(stock => {
+                  return (
+                    <tr>
+                      <td>{stock.name}</td>
+                      <td>${Math.floor(stock.dates[0].closing, 10)}</td>
+                      <td>
+                        {Math.trunc(
+                          (stock.dates[0].closing - stock.dates[1].closing) * 10
+                        ) / 10}
+                      </td>
+                      <td>
+                        {Math.trunc(
+                          (stock.dates[0].closing - stock.dates[6].closing) * 10
+                        ) / 10}
+                      </td>
+                      <td>
+                        {Math.trunc(
+                          (stock.dates[0].closing -
+                            stock.dates[stock.dates.length - 1].closing) *
+                            10
+                        ) / 10}
+                      </td>
+                      <td>
+                        <a href="#"> trade </a>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
-          <div class="card-footer text-muted">2 days ago</div>
+          <div class="card-footer text-muted">Data pulled from Quandl API</div>
         </div>
       </div>
     );

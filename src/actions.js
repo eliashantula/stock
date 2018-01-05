@@ -1,7 +1,7 @@
 export const GET_REQUEST = "GET_REQUEST";
 export const GET_SUCCESS = "GET_SUCCESS";
 export const GET_FAILURE = "GET_FAILURE";
-import data from "./quandle/30DayStockData";
+const data = require("./quandl/30DayStockData");
 // Starts request
 
 export function getRequest() {
@@ -32,11 +32,12 @@ export function getInitialStocks() {
   //some initial setup for variables in the fetch call
 
   return dispatch => {
-    dispatch(getRequest);
+    dispatch(getRequest());
     return new Promise((res, rej) => {
       setTimeout(() => {
-      dispatch(getSuccess) 
-      resolve(data);
+        console.log("data in the action => ", data);
+        dispatch(getSuccess(data.default));
+        res(data);
       }, 100);
     });
   };

@@ -14,7 +14,7 @@ export function initialStocksReducer(state = initialState, action) {
     case Actions.GET_SUCCESS:
       return {
         ...state,
-        stocks: state.stocks.map().push(action.data),
+        stocks: action.data,
         isFetching: false
       };
     case Actions.GET_REQUEST:
@@ -36,4 +36,6 @@ export function initialStocksReducer(state = initialState, action) {
   }
 }
 
-export const stocksApp = combineReducers({initialStocksReducer});
+export const stocksApp = combineReducers({
+  initialStocksReducer: initialStocksReducer
+});
