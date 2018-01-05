@@ -26,10 +26,29 @@ export function getFailure(error) {
   };
 }
 
+export function dataClean(data) {
+
+
+
+
+
+}
 //action to get 30 stocks and info
 export function getInitialStocks() {
   //some initial setup for variables in the fetch call
-  const baseUrl = "https://www.quandl.com/api/v3/datasets/EOD/";
+
+}
+
+
+
+
+
+
+
+
+
+
+/*const baseUrl = "https://www.quandl.com/api/v3/datasets/EOD/";
   const quandleAPIKey = "BJQ4TqSUVtTDysdfSCxZ";
   const stockList = [
     "AAPL",
@@ -94,5 +113,4 @@ export function getInitialStocks() {
     } catch (e) {
       console.error(e);
     }
-  };
-}
+  };*/
