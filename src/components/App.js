@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import logo from "../logo.svg";
 import "./App.css";
-
+import DateContainer from '../containers/DateContainer'
 //custom containers
 import StockDataContainer from "../containers/StockDataContainer";
 import TradeContainer from "../containers/TradeContainer";
@@ -24,8 +24,7 @@ class App extends Component {
         <div>
           <nav
             className="navbar navbar-light bg-faded"
-            style={{marginBottom: "40px"}}
-          >
+            style={{marginBottom: "40px"}}>
             <h1>
               <a className="navbar-brand" href="#">
                 FidelGuard Stock Portfolio Simulator
@@ -33,11 +32,14 @@ class App extends Component {
             </h1>
           </nav>
           <div className="App container-fluid">
+           <div className="date">
+                <DateContainer />
+              </div>
             <div className="row">
-              <div className="col-xl-4">
+              <div className="col-xl-6">
                 <StockDataContainer />
               </div>
-              <div className="col-xl-8">
+              <div className="col-xl-6">
                 <Switch>
                   <Route exact path="/trade" component={TradeContainer} />
                   <Route exact path="/portfolio" component={TradeContainer} />

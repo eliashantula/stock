@@ -2,6 +2,7 @@ export const GET_REQUEST = "GET_REQUEST";
 export const GET_SUCCESS = "GET_SUCCESS";
 export const GET_FAILURE = "GET_FAILURE";
 export const NEW_TRANSACTION = "NEW_TRANSACTION";
+export const DATE_SELECT = "DATE_SELECT"
 
 //-------------------------------
 // Initial Stocks Action
@@ -32,6 +33,18 @@ export function getFailure(error) {
   };
 }
 
+export function dateSelect(data) {
+  return {
+    type: DATE_SELECT,
+    data
+    };
+
+  }
+
+
+
+
+
 
 //action to get 30 stocks and info
 export function getInitialStocks() {
@@ -59,6 +72,8 @@ export function newTransaction(data) {
     data
   }
 }
+
+
 
 /*const baseUrl = "https://www.quandl.com/api/v3/datasets/EOD/";
   const quandleAPIKey = "BJQ4TqSUVtTDysdfSCxZ";

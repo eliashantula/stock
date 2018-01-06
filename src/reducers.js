@@ -14,11 +14,19 @@ import {combineReducers} from "redux";
 
 const initialState = {
   stocks: [],
-  isFetching: false
+  isFetching: false,
+  cash: 3000000,
+  date: "2018-01-02"
 };
 
 export function initialStocksReducer(state = initialState, action) {
   switch (action.type) {
+    case Actions.DATE_SELECT:
+    return {
+      ...state,
+      date: action.data
+    };
+
     case Actions.GET_SUCCESS:
       return {
         ...state,
@@ -38,6 +46,8 @@ export function initialStocksReducer(state = initialState, action) {
         isFetching: false,
         error: action.error
       };
+     
+
 
     default:
       return state;
@@ -54,18 +64,19 @@ const initialTransactionState = {
 
 export function stockTransactionsReducer(
   state = initialTransactionState,
-  action
-) {
+  action) {
   switch (action.type) {
     case Actions.NEW_TRANSACTION:
       return {
         ...state,
-        transactions: state.transactions.map().push(action.data)
+        transactions: [...state.transactions, action.data]
       };
     default:
       return state;
   }
 }
+
+
 
 export const stocksApp = combineReducers({
   initialStocksReducer: initialStocksReducer,

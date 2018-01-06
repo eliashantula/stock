@@ -17,25 +17,25 @@ class Trade extends Component {
 
     return (
       <div>
-        <div class="card text-center">
-          <div class="card-header">Trade</div>
-          <div class="card-block">
+        <div className="card text-center">
+          <div className="card-header">Trade</div>
+          <div className="card-block">
             {" "}
-            <div class="row">
-              <div class="col-xl-6">
+            <div className="row">
+              <div className="col-xl-6">
                 <form
                   onSubmit={onSubmit}
                   className="form-group"
                   style={{marginTop: "10px", marginLeft: "30px"}}
                 >
-                  <div class="form-group row">
+                  <div className="form-group row">
                     <label
                       for="example-text-input"
                       class="col-2 col-form-label"
                     >
                       Symbol
                     </label>
-                    <div class="col-10">
+                    <div className="col-10">
                       <input
                         class="form-control"
                         type="text"
@@ -46,14 +46,14 @@ class Trade extends Component {
                       />
                     </div>
                   </div>
-                  <div class="form-group row">
+                  <div className="form-group row">
                     <label
                       for="example-text-input"
                       class="col-2 col-form-label"
                     >
                       Buy/Sell
                     </label>
-                    <div class="col-10">
+                    <div className="col-10">
                       <input
                         class="form-control"
                         type="text"
@@ -64,7 +64,7 @@ class Trade extends Component {
                       />
                     </div>
                   </div>
-                  <div class="form-group row">
+                  <div className="form-group row">
                     <label
                       for="example-text-input"
                       class="col-2 col-form-label"
@@ -82,14 +82,14 @@ class Trade extends Component {
                       />
                     </div>
                   </div>
-                  <div class="form-group row">
+                  <div className="form-group row">
                     <label
                       for="example-text-input"
                       class="col-2 col-form-label"
                     >
                       Date
                     </label>
-                    <div class="col-10">
+                    <div className="col-10">
                       <input
                         class="form-control"
                         type="text"
@@ -100,25 +100,25 @@ class Trade extends Component {
                       />
                     </div>
                   </div>
-                  <div class="form-group row">
+                  <div className="form-group row">
                     <label
                       for="example-text-input"
                       class="col-2 col-form-label"
                     >
                       Price
                     </label>
-                    <div class="col-10" style={{textAlign: "left"}}>
+                    <div className="col-10" style={{textAlign: "left"}}>
                       $100
                     </div>
                   </div>
-                  <div class="form-group row">
+                  <div className="form-group row">
                     <label
                       for="example-text-input"
                       class="col-2 col-form-label"
                     >
                       Price
                     </label>
-                    <div class="col-10" style={{textAlign: "left"}}>
+                    <div className="col-10" style={{textAlign: "left"}}>
                       $100
                     </div>
                   </div>

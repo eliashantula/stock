@@ -16,10 +16,10 @@ class Transactions extends Component {
 
     return (
       <div>
-        <div class="card text-center">
-          <div class="card-header">Transactions</div>
+        <div className="card text-center">
+          <div className="card-header">Transactions</div>
           <div class="card-block">
-            <table class="table table-striped table-dark">
+            <table className="table table-striped table-dark">
               <thead>
                 <tr>
                   <th scope="col">Date</th>
@@ -49,7 +49,7 @@ class Transactions extends Component {
                              </tbody>
             </table>
           </div>
-          <div class="card-footer text-muted">2 days ago</div>
+          <div className="card-footer text-muted">2 days ago</div>
         </div>
       </div>
     );

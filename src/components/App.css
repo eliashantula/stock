@@ -26,3 +26,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+.container {
+  width: 10px;
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+    width: 100px;
+    margin-left:auto;
+    margin-right: auto;
+}

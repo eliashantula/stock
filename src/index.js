@@ -18,8 +18,26 @@ import {stocksApp} from "./reducers";
 //importing an action
 import {getInitialStocks} from "./actions";
 
+
+
+const bankAccounts = [
+
+{id: 1, balance: 10, transactions: [], display: []},
+    {id: 2, balance: 1000, transactions: [], display: []},
+    {id: 3, balance: 920022, transactions: [], display: []},
+
+]
+
+
 let store = createStore(stocksApp, applyMiddleware(thunk, logger));
 
+
+let unsubscribe = store.subscribe(() => {});
+
+
+console.table(store.getState());
+
+unsubscribe();
 ReactDOM.render(
   <Provider store={store}>
     <App />
