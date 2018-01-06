@@ -38,7 +38,7 @@ class List extends Component {
                 {
                   
                   stocks.map(stock => {
-                  let numb;
+                  let numb,current, oneDay,sevenDay,thirtyDay
                   let dates = this.props.date
                   for (var i = 0; i < stock.dates.length; i++){
                     if (stock.dates[i].date === dates){
@@ -46,28 +46,52 @@ class List extends Component {
                       console.log("yes it does", dates)
                       console.log(numb, dates)
                     }
-                    
-                  }
+                   }
+                   if (numb === undefined){
+                    current = "Data unavailable for date range"
+                   } else {
+                    current = Math.floor(stock.dates[numb].closing, 10)
+                   }
+                   if (stock.dates[numb + 1]  === undefined){
+                    oneDay = "Data unavailable for date range"
+                   } else {
+                     oneDay = Math.trunc(
+                          (stock.dates[numb].closing - stock.dates[numb + 1].closing) * 10
+                        ) / 10
+                   }
+                     if (stock.dates[numb + 6]  === undefined){
+                   
+                    sevenDay = "Data unavailable for date range"
+                   } else { sevenDay = Math.trunc(
+                          (stock.dates[numb].closing - stock.dates[numb + 6].closing) * 10
+                        ) / 10} 
+                   if ((stock.dates.length - 1) - numb < 20 || numb === undefined) {
+                   
+                    thirtyDay = "Data unavailable for date range"
+                   } else {
+                    thirtyDay = Math.trunc(
+                          (stock.dates[numb].closing -
+                            stock.dates[stock.dates.length - 1].closing) *
+                            10
+                        ) / 10
+                   }
+
+
+
                   return (
                     <tr>
                       <td>{stock.name}</td>
-                      <td>${Math.floor(stock.dates[numb].closing, 10)}</td>
+                      <td>{current}</td>
                       <td>
-                        {Math.trunc(
-                          (stock.dates[numb].closing - stock.dates[numb + 1].closing) * 10
-                        ) / 10}
+                       
+                        {oneDay}
+                      </td>
+                      
+                      <td>
+                        {sevenDay}
                       </td>
                       <td>
-                        {Math.trunc(
-                          (stock.dates[numb].closing - stock.dates[numb+ 6].closing) * 10
-                        ) / 10}
-                      </td>
-                      <td>
-                        {Math.trunc(
-                          (stock.dates[0].closing -
-                            stock.dates[stock.dates.length - 1].closing) *
-                            10
-                        ) / 10}
+                        {thirtyDay}
                       </td>
                       <td>
                         <a href="#"> trade </a>
