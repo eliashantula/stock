@@ -20,15 +20,6 @@ import {getInitialStocks} from "./actions";
 
 
 
-const bankAccounts = [
-
-{id: 1, balance: 10, transactions: [], display: []},
-    {id: 2, balance: 1000, transactions: [], display: []},
-    {id: 3, balance: 920022, transactions: [], display: []},
-
-]
-
-
 let store = createStore(stocksApp, applyMiddleware(thunk, logger));
 
 

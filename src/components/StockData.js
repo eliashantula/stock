@@ -94,7 +94,7 @@ class List extends Component {
                         {thirtyDay}
                       </td>
                       <td>
-                        <a href="#"> trade </a>
+                        <a href="/trade"> trade </a>
                       </td>
                     </tr>
                   );

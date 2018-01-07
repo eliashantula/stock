@@ -1,5 +1,5 @@
 // reg component
-import React, {Component} from "react";
+import React, { Component } from "react";
 
 //adding some bootstrap
 import "bootstrap/dist/css/bootstrap.css";
@@ -11,7 +11,7 @@ class Trade extends Component {
 
   componentDidMount() {}
   render() {
-    const {onSubmit} = this.props;
+    const { onSubmit, cash} = this.props;
     console.log("onSubmit =>", onSubmit);
     console.log("trade props => ", this.props);
 
@@ -26,112 +26,117 @@ class Trade extends Component {
                 <form
                   onSubmit={onSubmit}
                   className="form-group"
-                  style={{marginTop: "10px", marginLeft: "30px"}}
+                  style={{ marginTop: "5px", marginLeft: "30px" }}
                 >
                   <div className="form-group row">
                     <label
                       for="example-text-input"
-                      class="col-2 col-form-label"
+                      className="col-6-sm col-form-label"
                     >
                       Symbol
                     </label>
-                    <div className="col-10">
+                    <div className="col-6-sm">
                       <input
-                        class="form-control"
+                        className="form-control"
                         type="text"
                         name="symbol"
-                        placeholder="AAPL"
+                        placeholder="Enter Symbol"
                         id="example-text-input"
-                        style={{width: "500px"}}
+                        style={{ width: "300px", marginLeft: "18px" }}
+
                       />
                     </div>
                   </div>
                   <div className="form-group row">
                     <label
                       for="example-text-input"
-                      class="col-2 col-form-label"
+                      className="col-6-sm col-form-label"
                     >
                       Buy/Sell
                     </label>
-                    <div className="col-10">
+                    <div className="col-16">
                       <input
-                        class="form-control"
+                        className="form-control"
                         type="text"
-                        name="symbol"
-                        placeholder="AAPL"
+                        name="action"
+                        placeholder="Buy or Sell"
                         id="example-text-input"
-                        style={{width: "500px"}}
+                        style={{ width: "300px", marginLeft: "13px" }}
                       />
                     </div>
                   </div>
                   <div className="form-group row">
                     <label
                       for="example-text-input"
-                      class="col-2 col-form-label"
+                      class="col-6-sm col-form-label"
                     >
                       Quantity
                     </label>
-                    <div class="col-10">
+                    <div className="col-6-sm">
                       <input
-                        class="form-control"
+                        className="form-control"
                         type="text"
-                        name="symbol"
-                        placeholder="AAPL"
+                        name="amount"
+                        placeholder="Quantity"
                         id="example-text-input"
-                        style={{width: "500px"}}
+                        style={{ width: "300px", marginLeft: "10px" }}
                       />
                     </div>
                   </div>
                   <div className="form-group row">
                     <label
                       for="example-text-input"
-                      class="col-2 col-form-label"
+                      className="col-6-sm col-form-label"
                     >
-                      Date
+                      Date 
                     </label>
-                    <div className="col-10">
+                    <div className="col-6-sm">
                       <input
-                        class="form-control"
+                        className="form-control"
                         type="text"
-                        name="symbol"
-                        placeholder="AAPL"
+                        name="date"
+                        placeholder="Date"
                         id="example-text-input"
-                        style={{width: "500px"}}
+                        style={{ width: "300px", marginLeft: "40px" }}
                       />
                     </div>
                   </div>
                   <div className="form-group row">
                     <label
                       for="example-text-input"
-                      class="col-2 col-form-label"
+                      className="col-6-sm col-form-label"
                     >
                       Price
                     </label>
-                    <div className="col-10" style={{textAlign: "left"}}>
-                      $100
+                    <div className="col-10" style={{ textAlign: "left" }}>
+                      {}
                     </div>
                   </div>
                   <div className="form-group row">
                     <label
                       for="example-text-input"
-                      class="col-2 col-form-label"
+                      className="col-6-sm col-form-label"
                     >
                       Price
                     </label>
-                    <div className="col-10" style={{textAlign: "left"}}>
-                      $100
+                    <div className="col-6-sm" style={{ textAlign: "left" }}>
+                      {}
                     </div>
                   </div>
                   <input
                     type="submit"
                     className="btn btn-success"
-                    style={{marginLeft: "60px"}}
+                    value="Place Order"
+                    style={{ marginLeft: "60px" }}
                   />
                 </form>
               </div>
+              <div className="account">
+              <h4>Account Balance:{cash}</h4>
+              </div>
             </div>
           </div>
-          <div class="card-footer text-muted">Data pulled from Quandl API</div>
+          <div class="card-footer text-muted"></div>
         </div>
       </div>
     );

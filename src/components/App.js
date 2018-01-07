@@ -35,6 +35,17 @@ class App extends Component {
            <div className="date">
                 <DateContainer />
               </div>
+               <div>
+      <NavLink exact to="/trade" activeClassName="active">
+        Trade
+      </NavLink>{' '}
+      <NavLink exact to="/portfolio" activeStyle={{color: 'red'}}>
+        Portfolio
+      </NavLink>{' '}
+       <NavLink exact to="/transactions" activeStyle={{color: 'red'}}>
+        transactions
+      </NavLink>
+      </div>
             <div className="row">
               <div className="col-xl-6">
                 <StockDataContainer />
