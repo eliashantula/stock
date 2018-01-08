@@ -2,8 +2,7 @@ export const GET_REQUEST = "GET_REQUEST";
 export const GET_SUCCESS = "GET_SUCCESS";
 export const GET_FAILURE = "GET_FAILURE";
 export const NEW_TRANSACTION = "NEW_TRANSACTION";
-export const DATE_SELECT = "DATE_SELECT"
-
+export const DATE_SELECT = "DATE_SELECT";
 
 //-------------------------------
 // Initial Stocks Action
@@ -38,20 +37,38 @@ export function dateSelect(data) {
   return {
     type: DATE_SELECT,
     data
-    };
-
-  }
-
-
-
-
-
+  };
+}
 
 //action to get 30 stocks and info
 export function getInitialStocks() {
   //some initial setup for variables in the fetch call
 
   return dispatch => {
+    // Update the state so that it knows the request has begun
+    dispatch(getRequest());
+
+    fetch("trade/api/")
+      .then(response => {
+        // If response not okay, throw an error
+        if (!response.ok) {
+          throw new Error(`${response.status} ${response.statusText}`);
+        }
+        // Otherwise, extract the response into json
+        return response.json();
+      })
+      .then(json => {
+        // Dispatch success which sets the APOD.
+        dispatch(getSuccess(data.default));
+      })
+      .catch(error => {
+        // Dispatch failure which sets the error in state
+        dispatch(getFailure(error));
+      });
+  };
+}
+
+/*return dispatch => {
     dispatch(getRequest());
     return new Promise((res, rej) => {
       setTimeout(() => {
@@ -61,7 +78,7 @@ export function getInitialStocks() {
       }, 100);
     });
   };
-}
+}*/
 
 //-------------------------------
 // Transaction Action
@@ -71,10 +88,8 @@ export function newTransaction(data) {
   return {
     type: NEW_TRANSACTION,
     data
-  }
+  };
 }
-
-
 
 /*const baseUrl = "https://www.quandl.com/api/v3/datasets/EOD/";
   const quandleAPIKey = "BJQ4TqSUVtTDysdfSCxZ";
