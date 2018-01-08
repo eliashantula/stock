@@ -3,6 +3,12 @@ import React, {Component} from "react";
 
 //adding some bootstrap
 import "bootstrap/dist/css/bootstrap.css";
+import {
+  BrowserRouter as Router,
+  Route,
+  NavLink,
+  Switch
+} from "react-router-dom";
 
 class List extends Component {
   constructor(props) {
@@ -40,6 +46,7 @@ class List extends Component {
                   stocks.map(stock => {
                   let numb,current, oneDay,sevenDay,thirtyDay
                   let dates = this.props.date
+                  console.log(dates)
                   for (var i = 0; i < stock.dates.length; i++){
                     if (stock.dates[i].date === dates){
                       numb=i
@@ -94,7 +101,9 @@ class List extends Component {
                         {thirtyDay}
                       </td>
                       <td>
-                        <a href="/trade"> trade </a>
+                        <NavLink exact to={`/trade/?${stock.name}-${current}-${date}`} activeClassName="active">
+        Trade
+      </NavLink>{' '}
                       </td>
                     </tr>
                   );

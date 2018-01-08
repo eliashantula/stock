@@ -52,7 +52,7 @@ class App extends Component {
               </div>
               <div className="col-xl-6">
                 <Switch>
-                  <Route exact path="/trade" component={TradeContainer} />
+                  <Route exact path="/trade/:page_number?" component={TradeContainer} />
                   <Route exact path="/portfolio" component={TradeContainer} />
                   <Route exact path="/" component={TradeContainer} />
                   <Route exact path="/transactions" component={TransactionsContainer} />

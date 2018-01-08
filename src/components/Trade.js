@@ -1,20 +1,33 @@
-// reg component
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 //adding some bootstrap
 import "bootstrap/dist/css/bootstrap.css";
+import {
+  BrowserRouter as Router,
+  Route,
+  NavLink,
+  Switch
+} from "react-router-dom";
 
 class Trade extends Component {
   constructor(props) {
     super();
   }
-
-  componentDidMount() {}
+ componentDidMount(){}
   render() {
-    const { onSubmit, cash} = this.props;
-    console.log("onSubmit =>", onSubmit);
-    console.log("trade props => ", this.props);
+     
+    const { onSubmit, cash, location} = this.props;
 
+  
+    let info = location.search.substring( location.search.indexOf('?') + 1 ).split("-");
+    let symbol = info[0];
+    let price = parseInt(info[1])
+    let dates = info[2]+"-"+info[3]+"-"+info[4]
+
+
+    console.log("trade props => ", this.props);
+    console.log("onSubmit =>", onSubmit);
+    console.log(info)
     return (
       <div>
         <div className="card text-center">
@@ -40,7 +53,7 @@ class Trade extends Component {
                         className="form-control"
                         type="text"
                         name="symbol"
-                        placeholder="Enter Symbol"
+                        value={symbol}
                         id="example-text-input"
                         style={{ width: "300px", marginLeft: "18px" }}
 
@@ -52,17 +65,16 @@ class Trade extends Component {
                       for="example-text-input"
                       className="col-6-sm col-form-label"
                     >
-                      Buy/Sell
+                      Transaction Type:
                     </label>
-                    <div className="col-16">
-                      <input
-                        className="form-control"
-                        type="text"
-                        name="action"
-                        placeholder="Buy or Sell"
-                        id="example-text-input"
-                        style={{ width: "300px", marginLeft: "13px" }}
-                      />
+                    <div className="col-6">
+                     
+                    <select name="transaction" style={{ width: "100px", marginLeft: "-100px" }}>
+                    <option value="buy">Buy</option>
+                    <option value="sell">Sell</option>
+                    </select>
+  
+
                     </div>
                   </div>
                   <div className="form-group row">
@@ -95,7 +107,8 @@ class Trade extends Component {
                         className="form-control"
                         type="text"
                         name="date"
-                        placeholder="Date"
+                        value={dates}
+                        placeholder=""
                         id="example-text-input"
                         style={{ width: "300px", marginLeft: "40px" }}
                       />
@@ -106,9 +119,19 @@ class Trade extends Component {
                       for="example-text-input"
                       className="col-6-sm col-form-label"
                     >
-                      Price
+                    Price: 
                     </label>
-                    <div className="col-10" style={{ textAlign: "left" }}>
+                    <div className="col-6-sm">
+                      <input
+                        className="form-control"
+                        type="text"
+                        name="price"
+                        value={price}
+                        id="example-text-input"
+                        style={{ width: "300px", marginLeft: "33px" }}
+                      />
+                    </div>
+                    <div className="col-6" style={{ textAlign: "left" }}>
                       {}
                     </div>
                   </div>
@@ -117,7 +140,7 @@ class Trade extends Component {
                       for="example-text-input"
                       className="col-6-sm col-form-label"
                     >
-                      Price
+                      Cost
                     </label>
                     <div className="col-6-sm" style={{ textAlign: "left" }}>
                       {}
@@ -132,7 +155,7 @@ class Trade extends Component {
                 </form>
               </div>
               <div className="account">
-              <h4>Account Balance:{cash}</h4>
+              <h4>Account Balance: ${cash}</h4>
               </div>
             </div>
           </div>

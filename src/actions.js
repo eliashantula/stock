@@ -4,6 +4,7 @@ export const GET_FAILURE = "GET_FAILURE";
 export const NEW_TRANSACTION = "NEW_TRANSACTION";
 export const DATE_SELECT = "DATE_SELECT"
 
+
 //-------------------------------
 // Initial Stocks Action
 //-------------------------------
