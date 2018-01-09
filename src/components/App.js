@@ -6,6 +6,7 @@ import DateContainer from '../containers/DateContainer'
 import StockDataContainer from "../containers/StockDataContainer";
 import TradeContainer from "../containers/TradeContainer";
 import TransactionsContainer from "../containers/TransactionsContainer"
+import PortfolioContainer from '../containers/portfolioContainer'
 //adding some bootstrap
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -16,34 +17,38 @@ import {
   NavLink,
   Switch
 } from "react-router-dom";
+import Background from '../public/images/dollars.jpg';
 
+
+const home = '/'
 class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div style={{backgroundImage: "url(" + Background + ")", height: "900px"}}>
           <nav
             className="navbar navbar-light bg-faded"
             style={{marginBottom: "40px"}}>
-            <h1>
-              <a className="navbar-brand" href="#">
-                FidelGuard Stock Portfolio Simulator
-              </a>{" "}
-            </h1>
+            <h3>
+              <NavLink exact to="/" activeClassName="active">
+        FidelGuard Stock Portfolio Simulator
+      </NavLink>{' '}
+                
+            </h3>
           </nav>
           <div className="App container-fluid">
            <div className="date">
                 <DateContainer />
               </div>
                <div>
-      <NavLink exact to="/trade" activeClassName="active">
-        Trade
-      </NavLink>{' '}
-      <NavLink exact to="/portfolio" activeStyle={{color: 'red'}}>
-        Portfolio
-      </NavLink>{' '}
-       <NavLink exact to="/transactions" activeStyle={{color: 'red'}}>
-        transactions
+      <NavLink style={{backgroundColor: "black"}} exact to="/trade" activeClassName="active">
+        Trade{'   '}
+      </NavLink>
+      <NavLink style={{backgroundColor: "black"}} exact to="/portfolio" activeStyle={{color: 'red'}}>
+        {''}Portfolio{'  '} 
+      </NavLink>
+       <NavLink style={{backgroundColor: "black"}} exact to="/transactions" activeStyle={{color: 'red'}}>
+        Transactions{'  '} 
       </NavLink>
       </div>
             <div className="row">
@@ -53,8 +58,8 @@ class App extends Component {
               <div className="col-xl-6">
                 <Switch>
                   <Route exact path="/trade/:page_number?" component={TradeContainer} />
-                  <Route exact path="/portfolio" component={TradeContainer} />
-                  <Route exact path="/" component={TradeContainer} />
+                  <Route exact path="/portfolio" component={PortfolioContainer} />
+                  <Route exact path="/" render = {()=><h1 style={{marginTop: "60px"}}>Welcome</h1>} />
                   <Route exact path="/transactions" component={TransactionsContainer} />
                 </Switch>
               </div>

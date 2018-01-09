@@ -36,6 +36,8 @@ const mapStateToProps = state => {
   };
 };
 
+
+
 //allowing container to access action calls
 const mapDispatchToProps = dispatch => {
   const actions = {getInitialStocks};

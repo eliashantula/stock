@@ -6,13 +6,16 @@ import {
   BrowserRouter as Router,
   Route,
   NavLink,
-  Switch
+  Switch,
+  Prompt
 } from "react-router-dom";
 
 class Trade extends Component {
   constructor(props) {
     super();
+    this.state = {hasFormData: false}
   }
+setHasFormData = () => this.setState({hasFormData: true})
  componentDidMount(){}
   render() {
      
@@ -43,7 +46,7 @@ class Trade extends Component {
                 >
                   <div className="form-group row">
                     <label
-                      for="example-text-input"
+                      htmlFor="example-text-input"
                       className="col-6-sm col-form-label"
                     >
                       Symbol
@@ -62,7 +65,7 @@ class Trade extends Component {
                   </div>
                   <div className="form-group row">
                     <label
-                      for="example-text-input"
+                      htmlFor="example-text-input"
                       className="col-6-sm col-form-label"
                     >
                       Transaction Type:
@@ -79,7 +82,7 @@ class Trade extends Component {
                   </div>
                   <div className="form-group row">
                     <label
-                      for="example-text-input"
+                      htmlFor="example-text-input"
                       class="col-6-sm col-form-label"
                     >
                       Quantity
@@ -87,17 +90,21 @@ class Trade extends Component {
                     <div className="col-6-sm">
                       <input
                         className="form-control"
-                        type="text"
+                        type="text" onChange={this.setHasFormData}
                         name="amount"
                         placeholder="Quantity"
                         id="example-text-input"
                         style={{ width: "300px", marginLeft: "10px" }}
                       />
+                       <Prompt
+          when={this.state.hasFormData}
+          message="Are you sure you want to leave? Your form data will be lost!"
+        />
                     </div>
                   </div>
                   <div className="form-group row">
                     <label
-                      for="example-text-input"
+                      htmlFor="example-text-input"
                       className="col-6-sm col-form-label"
                     >
                       Date 
@@ -116,7 +123,7 @@ class Trade extends Component {
                   </div>
                   <div className="form-group row">
                     <label
-                      for="example-text-input"
+                      htmlFor="example-text-input"
                       className="col-6-sm col-form-label"
                     >
                     Price: 
@@ -137,7 +144,7 @@ class Trade extends Component {
                   </div>
                   <div className="form-group row">
                     <label
-                      for="example-text-input"
+                      htmlFor="example-text-input"
                       className="col-6-sm col-form-label"
                     >
                       Cost

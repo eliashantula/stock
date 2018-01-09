@@ -15,7 +15,11 @@ class TransactionsContainer extends Component {
   }
 
   render() {
-    return <Transactions transactions = {this.props.transactions} />;
+     const {transactions} = this.props;
+    return (
+
+      <Transactions transactions = {transactions} />
+      )
   }
 }
 

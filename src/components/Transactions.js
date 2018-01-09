@@ -10,9 +10,18 @@ class Transactions extends Component {
   constructor(props) {
     super();
   }
+ sortedStocks(datas) {
+  return [].concat(datas).sort((a, b) => a.symbol > b.symbol)
 
+  }
   render() {
     const {transactions} = this.props
+    console.log("here are transactions=>")
+    console.log(transactions)
+    const transactionSort = this.sortedStocks(transactions) 
+  
+
+  
 
     return (
       <div>
@@ -30,15 +39,15 @@ class Transactions extends Component {
                 </tr>
               </thead>
               <tbody>
-              {transactions.map(transaction => {
+              {transactionSort.map(transaction => {
               return (
                 <tr>
                   <td>{transaction.date}</td>
                   <td>{transaction.symbol}</td>
 
-                  <td>{transaction.type}</td>
-                  <td>{transaction.quantity}</td>
-                  <td>{transaction.price}</td>
+                  <td>{transaction.Type}</td>
+                  <td>{transaction.Amount}</td>
+                  <td>{transaction.Price}</td>
                 </tr>
 
 
@@ -49,7 +58,7 @@ class Transactions extends Component {
                              </tbody>
             </table>
           </div>
-          <div className="card-footer text-muted">2 days ago</div>
+          <div className="card-footer text-muted"></div>
         </div>
       </div>
     );
